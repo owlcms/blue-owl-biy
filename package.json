@@ -34,7 +34,8 @@
         "debug": "^4.3.4",
         "dotenv": "^16.0.3",
         "johnny-five": "^2.1.0",
-        "mqtt": "^4.3.7"
+        "mqtt": "^4.3.7",
+        "serialport": "^10.3.0"
     },
     "devDependencies": {
         "@tsconfig/node16-strictest": "^1.0.4",
@@ -46,6 +47,7 @@
         "@typescript-eslint/parser": "^5.43.0",
         "concurrently": "^7.6.0",
         "cross-env": "^7.0.3",
+        "electron-rebuild": "^3.2.9",
         "eslint": "^8.28.0",
         "ts-node": "^10.9.1",
         "tsconfig-paths": "^4.1.0",

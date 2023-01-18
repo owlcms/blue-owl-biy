@@ -5,10 +5,10 @@
         "outDir": "dist",
         "paths": {
             "lib/*": [
-                "lib/*"
+                "lib/*",
             ],
             "scripts/*": [
-                "scripts/*"
+                "scripts/*",
             ]
         },
         "target": "es5",
