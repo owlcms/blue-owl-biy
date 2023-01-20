@@ -47,34 +47,33 @@ exports.default = (function (initializer, config) { return __awaiter(void 0, voi
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("runner start");
+                //console.log("runner start")
                 config || (config = (0, config_1.default)());
                 owlcms = new owlcms_1.default({
                     mqttPassword: config.mqttPassword,
                     mqttUrl: config.mqttUrl,
                     mqttUsername: config.mqttUsername,
                 });
-                console.log("owlcms relay created.");
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 4, , 5]);
                 return [4 /*yield*/, owlcms.connect()];
             case 2:
                 _a.sent();
-                console.log("after mqtt connect");
+                console.log("after mqtt connect\r\n");
                 return [4 /*yield*/, (0, board_1.default)({
                         port: config.serialPort,
                     })];
             case 3:
                 board = _a.sent();
-                console.log("connected...");
+                console.log("connected...\r\n");
                 initializer({
                     board: board,
                     config: config,
                     owlcms: owlcms,
                     platform: config.platform,
                 });
-                console.log("initialized...");
+                console.log("initialized...\r\n");
                 return [3 /*break*/, 5];
             case 4:
                 error_1 = _a.sent();

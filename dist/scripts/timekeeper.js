@@ -1,7 +1,4 @@
 "use strict";
-// import type {
-//     Config,
-// } from './config';
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -10,6 +7,7 @@ var runner_1 = __importDefault(require("./runner"));
 var timekeeper_1 = __importDefault(require("../lib/model/timekeeper"));
 var buttons_1 = __importDefault(require("../lib/model/timekeeper/buttons"));
 //export default (config: Config) => {
+console.log('arguments ' + process.argv[2]);
 (0, runner_1.default)(function (_a) {
     var board = _a.board, owlcms = _a.owlcms, platform = _a.platform;
     new timekeeper_1.default({
@@ -29,6 +27,12 @@ var buttons_1 = __importDefault(require("../lib/model/timekeeper/buttons"));
         owlcms: owlcms,
         platform: platform,
     });
+}, {
+    mqttPassword: "",
+    mqttUrl: "mqtt://localhost:1883",
+    mqttUsername: "",
+    serialPort: process.argv[2],
+    platform: 'A',
 });
 //};
 //# sourceMappingURL=timekeeper.js.map

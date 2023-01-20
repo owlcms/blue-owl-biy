@@ -1,12 +1,9 @@
-// import type {
-//     Config,
-// } from './config';
-
 import runner from './runner';
 import Timekeeper from '../lib/model/timekeeper';
 import timekeeperButtons from '../lib/model/timekeeper/buttons';
 
 //export default (config: Config) => {
+    console.log('arguments ' + process.argv[2])
     runner(({
         board,
         owlcms,
@@ -29,5 +26,12 @@ import timekeeperButtons from '../lib/model/timekeeper/buttons';
             owlcms,
             platform,
         });
+    },
+    {
+        mqttPassword: "",
+        mqttUrl: "mqtt://localhost:1883",
+        mqttUsername: "",
+        serialPort: process.argv[2],
+        platform: 'A',
     });
 //};
