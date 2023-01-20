@@ -1,58 +1,68 @@
 {
-    "name": "blue-owl",
-    "version": "0.0.0",
-    "description": "Technical Official device integration for OWLCMS",
-    "keywords": [
-        "owlcms",
-        "referee",
-        "weightlifting"
-    ],
-    "main": "index.js",
-    "engines": {
-        "node": ">=16"
-    },
-    "scripts": {
-        "lint": "concurrently \"npm:lint:*\"",
-        "lint:eslint": "npx eslint .",
-        "lint:ts": "tsc --noEmit --pretty -p tsconfig.lint.json",
-        "jury-3": "npm run ts ./src/scripts/jury-3.ts",
-        "jury-5": "npm run ts ./src/scripts/jury-5.ts",
-        "referee-single": "npm run ts ./src/scripts/referee-single.ts",
-        "referee": "npm run ts ./src/scripts/referee.ts",
-        "test": "npm run lint",
-        "ts": "cross-env DEBUG=blue-owl:* ts-node -r tsconfig-paths/register",
-        "timekeeper": "npm run ts ./src/scripts/timekeeper.ts"
-    },
-    "author": {
-        "name": "Scott González",
-        "email": "scott.gonzalez@gmail.com",
-        "url": "http://scottgonzalez.com"
-    },
-    "license": "ISC",
-    "dependencies": {
-        "@electron/remote": "^2.0.9",
-        "bindings": "^1.5.0",
-        "debug": "^4.3.4",
-        "dotenv": "^16.0.3",
-        "johnny-five": "^2.1.0",
-        "mqtt": "^4.3.7",
-        "serialport": "^10.5.0"
-    },
-    "devDependencies": {
-        "@tsconfig/node16-strictest": "^1.0.4",
-        "@types/debug": "^4.1.7",
-        "@types/electron": "^1.6.10",
-        "@types/johnny-five": "^1.3.7",
-        "@types/node": "^16.11.66",
-        "@types/serialport": "^8.0.2",
-        "@typescript-eslint/eslint-plugin": "^5.43.0",
-        "@typescript-eslint/parser": "^5.43.0",
-        "concurrently": "^7.6.0",
-        "cross-env": "^7.0.3",
-        "electron-rebuild": "^3.2.9",
-        "eslint": "^8.28.0",
-        "ts-node": "^10.9.1",
-        "tsconfig-paths": "^4.1.0",
-        "typescript": "^4.9.4"
-    }
+  "name": "blue-owl",
+  "version": "0.0.0",
+  "description": "Technical Official device integration for OWLCMS",
+  "keywords": [
+    "owlcms",
+    "referee",
+    "weightlifting"
+  ],
+  "main": "electron/main.js",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "lint": "concurrently \"npm:lint:*\"",
+    "lint:eslint": "npx eslint .",
+    "lint:ts": "tsc --noEmit --pretty -p tsconfig.lint.json",
+    "jury-3": "npm run ts ./src/scripts/jury-3.ts",
+    "jury-5": "npm run ts ./src/scripts/jury-5.ts",
+    "referee-single": "npm run ts ./src/scripts/referee-single.ts",
+    "referee": "npm run ts ./src/scripts/referee.ts",
+    "test": "npm run lint",
+    "ts": "cross-env DEBUG=blue-owl:* ts-node -r tsconfig-paths/register",
+    "timekeeper": "npm run ts ./src/scripts/timekeeper.ts",
+    "postinstall": "electron-rebuild",
+    "start": "cross-env DEBUG=blue-owl:* ./node_modules/.bin/electron electron/main.js",
+    "watch": "./node_modules/.bin/electron . --watch"
+  },
+  "author": {
+    "name": "Scott González",
+    "email": "scott.gonzalez@gmail.com",
+    "url": "http://scottgonzalez.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@electron/remote": "^2.0.9",
+    "bindings": "^1.5.0",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "electron-squirrel-startup": "^1.0.0",
+    "johnny-five": "git://github.com/scottgonzalez/johnny-five.git#658cddd5738b8d05cdf28082f035583495c16c15",
+    "mqtt": "^4.3.7"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-rpm": "^6.0.4",
+    "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.4",
+    "@electron/rebuild": "^3.2.10",
+    "@tsconfig/node16-strictest": "^1.0.4",
+    "@types/debug": "^4.1.7",
+    "@types/electron": "^1.6.10",
+    "@types/johnny-five": "^1.3.7",
+    "@types/node": "^16.11.66",
+    "@types/serialport": "^8.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "electron": "^22.0.3",
+    "electron-builder": "^23.6.0",
+    "eslint": "^8.28.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.9.4"
+  }
 }

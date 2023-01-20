@@ -1,12 +1,12 @@
-import type {
-    Config,
-} from './config';
+// import type {
+//     Config,
+// } from './config';
 
 import runner from './runner';
 import Timekeeper from '../lib/model/timekeeper';
 import timekeeperButtons from '../lib/model/timekeeper/buttons';
 
-export default (config: Config) => {
+//export default (config: Config) => {
     runner(({
         board,
         owlcms,
@@ -29,5 +29,5 @@ export default (config: Config) => {
             owlcms,
             platform,
         });
-    }, config);
-};
+    });
+//};

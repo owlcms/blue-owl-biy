@@ -8,9 +8,7 @@ import type {
 import connectBoard from '../lib/board';
 import Owlcms from '../lib/owlcms';
 import parseConfig from './config';
-import connectBoard from '../lib/board';
-import Owlcms from '../lib/owlcms';
-import parseConfig from './config';
+
 
 export type Initializer = (options: InitializerOptions) => void;
 
@@ -22,6 +20,7 @@ export interface InitializerOptions {
 }
 
 export default async (initializer: Initializer, config?: Config) => {
+    //console.log("runner start")
     config ||= parseConfig();
 
     const owlcms = new Owlcms({
@@ -29,13 +28,17 @@ export default async (initializer: Initializer, config?: Config) => {
         mqttUrl: config.mqttUrl,
         mqttUsername: config.mqttUsername,
     });
+    //console.log("owlcms relay created.")
 
     try {
         await owlcms.connect();
+        console.log("after mqtt connect\r\n");
 
         const board = await connectBoard({
             port: config.serialPort,
         });
+
+        console.log("connected...\r\n")
 
         initializer({
             board,
@@ -43,6 +46,7 @@ export default async (initializer: Initializer, config?: Config) => {
             owlcms,
             platform: config.platform,
         });
+        console.log("initialized...\r\n")
     } catch (error) {
         console.error(error);
         process.exitCode = 1;
