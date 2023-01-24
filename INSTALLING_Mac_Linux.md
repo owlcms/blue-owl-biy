@@ -1,11 +1,6 @@
-# Installing and Running the Blue Owl Device Package
+# macOS and Linux instructions
 
-> #### Note: these are ***Early Adopter Instructions***
->
-> The following instructions are NOT what to expect in the final package.  The final package will NOT require installing Node on the machines, and will NOT require editing a configuration file.  A self-contained application will do all that with a graphical user interface.
->
-
-Starting with release 37.2 owlcms no longer requires an external MQTT server.  It provides one.  We need to configure the devices so they have the necessary software to run Blue Owl, and configure them to reach owlcms using MQTT.
+#### 
 
 ## Configuring the Device-hosting laptops
 
@@ -47,54 +42,26 @@ nvm alias default 16
 
 #### Installing the Blue Owl Packages
 
-This step is not needed on the main owlcms machine unless it is also used by the announcer or timekeeper.
+- on macOS or Linux, obtain the blue-owl.tar.gz or the zip from **https://github.com/owlcms/blue-owl/releases**  and unpack it it to a directory of your choice (for example `~/blue-owl`)
 
-- on Windows, obtain the blue-owl.exe self-extracting zip file from **[https://github.com/owlcms/blue-owl/releases](https://github.com/owlcms/blue-owl/releases)**  Execute the file and unzip it to your desktop.
-- on macOS or Linux, obtain the blue-owl.zip from **https://github.com/owlcms/blue-owl/releases**  and unzip it to a directory of your choice.
-
-We then use our command line window to go to the directory and make it available.
+Then use a command line window to go to the directory and make everything available.
 
 ```
-cd Desktop/blue-owl
+cd ~/blue-owl
 npm install
 ```
 
-Edit the `bash/config.sh` or `windows\config.cmd` scripts in to have the correct address and login information for your MQTT Server
-
-
-
-## Starting the device on Windows
-
-1. Go to the Blue Owl installation area
-
-2. On a Windows machine
-
-   1. FInd the directory where blue-node.exe was unpacked, double-click on it
-   1. Open the `windows` directory
-   1. Open the `config.cmd` and make sure that the addresses and passwords are correct for the MQTT server
-   1. Double-click on the script you want to run
-
-3. If Blue Owl does not detect the device, or if you have more than one device, edit the script with Notepad and *remove* the `rem` ("remark") word at the beginning of the line that sets the port.  The line should look something like (and you would of course put the proper port name on the line)
-
-   ```
-   set BLUE_OWL_SERIAL_PORT=COM6
-   ```
 
 
 
 ## Starting the device on macOS or Linux
 
-1. Go to the Blue Owl installation area
+1. Start a terminal and go to your blue-owl installation area (`~/blue-owl` or whatever you used.)
 
-2. On a Windows machine
-
-   1. FInd the directory where blue-node.exe was unpacked, double-click on it
-   1. Open the `bash` directory
-   1. Open the `config.sh` and make sure that the adresses and passwords are correct for the MQTT server
-   1. Double-click on the script you want to run
-
-3. If Blue Owl does not detect the device, or if you have more than one device, edit the script with Notepad and *remove* the `#`  comment marker at the beginning of the line that sets the port.  The line should look something like (and you would of course put the proper port name on the line)
+2. Run the command 
 
    ```
-   export BLUE_OWL_SERIAL_PORT=/dev/xyz
+   npm run ts build-it-yourself/scripts/startdevice.ts
    ```
+
+   and answer the prompts.  Refer to the [Windows instructions](INSTALLING_Windows.md) for details about the values.
