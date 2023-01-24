@@ -38,10 +38,8 @@ runner(({
                 modules: [
                     juryMemberButtons({
                         badLiftButton: 14,
-                        badLiftButton: 14,
                         badLiftButtonPullUp: true,
                         board,
-                        goodLiftButton: 15,
                         goodLiftButton: 15,
                         goodLiftButtonPullUp: true,
                     }),
