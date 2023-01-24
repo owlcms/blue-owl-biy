@@ -1,4 +1,5 @@
-# Blue OWL Architecture
+# Blue-Owl Device Configuration
+
 ## API
 
 Each technical official is represented by a model, e.g., `Referee`. These models provide the logic and APIs necessary for the official, but do not provide any hardware-specific implementations. Instead, the models provide methods for actions that the official can perform and emits events for information provided by OWLCMS. Each model must be instantiated with a set of modules which provide the hardware-specific implementations.
@@ -18,6 +19,8 @@ The numbers `1`, `2`, `3`, `4`, and `5`.
 #### RefereeNumber
 
 The numbers `1`, `2`, and `3`.
+
+
 
 ### Owlcms
 
@@ -166,13 +169,23 @@ Provides functionality for good and bad lift buttons to submit the jury member's
     * `goodLiftButton` (`number | string`): Which pin the good lift button is connected to.
     * `goodLiftButtonPullUp` (optional; `boolean`): Whether the good lift button should use an internal pull-up resistor.
 
+##### leds(options)
+
+Provides functionality for displaying the jury member's decision on the jury panel using three individual LEDs for each jury member.
+
+* `options`: Configuration options for the LEDs.
+    * `board` (optional; `Board`): Which Johnny-Five board the LEDs are connected to.
+    * `badLiftLed` (`number | string`): Which pin the bad lift LED is connected to.
+    * `goodLiftLed` (`number | string`): Which pin the good lift LED is connected to.
+    * `maskedLed` (`number | string`): Which pin the masked (green) LED is connected to.
+
 ##### rgb-led(options)
 
-Provides functionality for displaying the jury member's decision on the jury panel. When a decision is made, the light will turn green and when all jury members have made a decision, the light will chnge to white or red to indicate a good or bad lift.
+Provides functionality for displaying the jury member's decision on the jury panel using a single RGB LED for each jury member. When a decision is made, the light will turn green and when all jury members have made a decision, the light will chnge to white or red to indicate a good or bad lift.
 
 * `options`: Configuration options for the RGB LED.
     * `anode` (optional; `boolean`): Whether the RGB LED is common anode.
-    * `board` (optional; `Board`): Which Johnny-Five board the LEDs are connected to.
+    * `board` (optional; `Board`): Which Johnny-Five board the RGB LED is connected to.
     * `pins` (object with `red`, `green`, and `blue` keys): Which pin each of the RGB LED leads is connected to.
 
 #### Events
@@ -299,6 +312,39 @@ The jury has summoned the referee to the jury table.
 Publish a decision for the current attempt.
 
 * `decision` (`Decision`): The referee's decision of whether the lift was good or bad.
+
+
+
+### DownSignal
+
+#### constructor(options)
+
+* `options`: Configuration options for the down signal.
+    * `modules` (`Array<(downSignal: DownSignal) => void>`): A set of modules that provide hardware-specific implementations.
+    * `owlcms` (`Owlcms`): An instance of `Owlcms`.
+    * `platform` (`string`): The name of the platform.
+
+#### Modules
+
+##### relay(options)
+
+Provides functionality for controlling electrical power to a device via a relay.
+
+* `options`: Configuration options for the relay.
+    * `board` (optional; `Board`): Which Johnny-Five board the buttons are connected to.
+    * `duration` (`number`): The duration (in milliseconds) that the relay is closed when the down signal is given.
+    * `pin` (`number | string`): Which pin the relay is connected to.
+    * `type` (optional; `"NC" | "NO"`): Whether the relay is normally closed (NC) or normally open (NO). Defaults to `"NO"`.
+
+#### Events
+
+##### initialized
+
+The model has been initialized.
+
+##### down
+
+The down signal should be shown.
 
 
 

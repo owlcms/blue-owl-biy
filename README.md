@@ -4,8 +4,8 @@ Blue Owl provides Technical Official device integration for [OWLCMS](https://owl
 
 ### About this Fork
 
-- This fork does not replace the upstream directory by Scott González.  The files in `src` are meant to be match official upstream version.
-- The `Releases` directory in this fork contains the programs necessary to run the program on Windows, Mac or Linux.
+- This fork does not replace the upstream directory by Scott González.  The files in `src` are meant to match the official upstream version.
+- The `Releases` directory in this fork contains the programs necessary to run the program on Windows, Mac, or Linux.
 - This fork adds a `build-it-yourself` directory that contains
   - Diagrams for building your own devices.  An interactive version of the diagram can be loaded on  [wokwi.com](https://wokwi.com) to get the exact pin numbers etc.
   - Scripts for running the device using the blue-owl library.  If you build your own design and need to change pin assignments, then you can simply change the scripts, and even [rebuild your own executable](BUILDING.md))
@@ -49,11 +49,17 @@ Referee control boxes may be used in compliance with the IWF Referee Light Syste
 * White and red LEDs to confirm decision entry.
 * LED, buzzer, and vibration to signal when a decision is required.
 * LED, buzzer, and vibration to signal when summoned to the jury table.
-* Triggering two relays, one to control a lamp, the other to control an external buzzer.
+
+#### Down Signal
+
+The down signal box may be used in compliance with the IWF Referee System as documented in TCRR 3.3.6.5. The down signal box supports:
+
+* Visible signal via a relay.
+* Audible signal via a relay.
 
 #### Single Referee Mode
 
-For competitions run with only one referee, a script configures all three referees to the same buttons. So the same decision is sent unanimously 3 times. 
+For competitions run with only one referee, simply configure all three referees with the same buttons. This will cause the single referee control box to send a decision for all three referees
 
 ### Timekeeper
 
@@ -78,13 +84,13 @@ The jury control panel and jury control units may be used to fulfill all jury me
 
 ## API
 
-Blue Owl is programmed in JavaScript using the Johnny-Five implementation of Firmata.  The full specification of the devices is documented in the [API](API.md) document.
+Blue Owl is programmed in JavaScript using the Johnny-Five implementation of Firmata.  The full specification of the devices is documented in the [API](API.md) documentation.
 
 Blue Owl talks to owlcms using MQTT messages.  The full list of messages supported by owlcms is documented: [MQTT messages](https://owlcms.github.io/owlcms4/#/MQTTMessages).
 
 ## About the names
 
-Should you wonder,  OWL stands for is Olympic Weightlifting. Blue is the color of the official's suits, and the name is a salute to their keen eyes.  Johnny-Five is a take on the [Johnny 5](https://robotics.fandom.com/wiki/Johnny_5) sentient robot from the Short-Circuit movie.
+Should you wonder,  OWL stands for Olympic Weightlifting. Blue is the color of the official's suits, and the name is a salute to their keen eyes.  Johnny-Five is a take on the [Johnny 5](https://robotics.fandom.com/wiki/Johnny_5) sentient robot from the Short-Circuit movie.
 
 ## License
 
