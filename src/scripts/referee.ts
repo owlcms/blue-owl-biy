@@ -4,7 +4,6 @@ import refereeBuzzer from 'lib/model/referee/buzzer';
 import refereeWarningLed from 'lib/model/referee/warning-led';
 import runner from 'scripts/runner';
 
-
 runner(({
     board,
     owlcms,
