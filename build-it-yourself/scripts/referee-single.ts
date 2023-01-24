@@ -3,12 +3,12 @@ import type {
 } from '../../src/lib/model/referee';
 import Referee from '../../src/lib/model/referee';
 import refereeButtons from '../../src/lib/model/referee/buttons';
-import downRelays from '../../src/lib/model/down/relays'
+import downSignalRelay from '../../src/lib/model/down-signal/relay'
 import runner from './runner';
 import type {
     Config,
 } from '../../src/scripts/config';
-import Down from '../../src/lib/model/down';
+import DownSignal from '../../src/lib/model/down-signal';
 
 export function doSoloReferee(conf?: Config) {
     runner(({
@@ -33,14 +33,17 @@ export function doSoloReferee(conf?: Config) {
         new Referee(options);
         new Referee({ ...options, number: 2 });
         new Referee({ ...options, number: 3 });
-        new Down({
+        new DownSignal({
             modules: [
-                downRelays({
+                downSignalRelay({
                     board,
-                    lightDuration: 1500,
-                    lightRelay: 'A0',   
-                    soundDuration: 500,
-                    soundRelay: 'A1',
+                    duration: 1500,
+                    pin: 'A0',   
+                }),
+                downSignalRelay({
+                    board,
+                    duration: 500,
+                    pin: 'A1',
                 }),
             ],
             owlcms,
