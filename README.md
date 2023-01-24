@@ -96,4 +96,4 @@ Should you wonder,  OWL stands for Olympic Weightlifting. Blue is the color of t
 
 Copyright Scott González. Released under the terms of the ISC license.
 
-Buid-it-yourself files and layouts are Copyright Jean-François Lamy, Released under the terms of the ISC license.
+Build-it-yourself files and layouts are Copyright Jean-François Lamy, Released under the terms of the ISC license.
