@@ -63,7 +63,7 @@
             "node_modules/johnny-five/**/*.node*"
         ],
         "targets": [
-            "node16-linux"
+            "node16-win"
         ]
     }
 }
