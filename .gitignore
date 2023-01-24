@@ -1,3 +1,4 @@
 /.env
 /dist/
 /node_modules/
+/startdevice_linux_x64

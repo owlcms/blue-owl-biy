@@ -28,6 +28,10 @@ export interface DecisionRequestEvent {
     referee: RefereeNumber;
 }
 
+export interface DownEvent {
+    platform: string;
+}
+
 export type Official =
     | RefereeNumber
     | 'all'
@@ -46,6 +50,7 @@ interface OwlcmsEvents {
     clockStart: (data: ClockStartEvent) => void;
     decision: (data: DecisionEvent) => void;
     decisionRequest: (data: DecisionRequestEvent) => void;
+    down: (data: DownEvent) => void;
     resetDecisions: (data: ResetDecisionsEvent) => void;
     summon: (data: SummonEvent) => void;
 }
@@ -82,7 +87,9 @@ export default class Owlcms extends EventEmitter {
 
         this.debug = debug('blue-owl:owlcms');
 
-        const mqttOptions: IClientOptions = {};
+        const mqttOptions: IClientOptions = {
+            connectTimeout: 5_000,
+        };
         if (options.mqttUsername) {
             mqttOptions.username = options.mqttUsername;
         }
@@ -119,7 +126,11 @@ export default class Owlcms extends EventEmitter {
                     platform,
                     referee: parseInt(referee) as RefereeNumber,
                 };
-            } else if (action === 'clockStart' || action === 'resetDecisions') {
+            } else if (
+                action === 'clockStart'
+                || action === 'down'
+                || action === 'resetDecisions'
+            ) {
                 data = {
                     platform,
                 };
@@ -149,6 +160,18 @@ export default class Owlcms extends EventEmitter {
             this.mqtt.on('error', (error) => {
                 this.debug('client error');
                 reject(error);
+            });
+
+            this.mqtt.once('offline', () => {
+                reject(new Error('MQTT server offline'));
+            });
+
+            this.mqtt.on('offline', () => {
+                this.debug('client offline');
+            });
+
+            this.mqtt.on('reconnect', () => {
+                this.debug('reconnect');
             });
         });
     }
