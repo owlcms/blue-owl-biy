@@ -31,21 +31,7 @@ To look at a file
 5. Go to https://wokwi.com and open your project
 6. In the diagram.json window, click ONCE and hit `F1` .
 7. Type the letters `load h` and select `Load HEX file and start simulation`
-8. Check the script you want to run. You can make a copy of the script under a different name if you wish.
-
-    1. Pick a pair of ports from those you have created (say COM5 and COM6)
-    2. In the script, use the even-numbered port (COM6)  -- this is not mandatory, but makes it easier to remember.
-    3. Edit and save the script.
-9. The browser will open a dialog asking for a serial port to open
+8. The browser will open a dialog asking for a serial port to open
    - Select the odd-numbered port (COM5)  that is the other member of the pair.
    - Click `Select`
-10. Start the script you want from the windows directory.  You should see something like the following.
-
-    ```text
-    blue-owl:owlcms connected +0ms
-    blue-owl:owlcms subscribed to owlcms messages +3ms
-    1673357350731 Connected COM6  
-    blue-owl:referee:A:3 initialized +0ms
-    blue-owl:referee:A:2 initialized +0ms
-    blue-owl:referee:A:1 initialized +0ms
-    ```
+9. Use the startdevice script and specify the other port (COM6 in the example)
