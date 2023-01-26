@@ -11,6 +11,7 @@ import parseConfig from '../../src/scripts/config';
 import { URL } from "url";
 
 const envConfig = parseConfig();
+
 const prompt = promptSync({ sigint: true });
 
 const defaultPlatform = envConfig.platform ||= "A";
@@ -23,6 +24,7 @@ if (envUrl) {
     defaultServer = parsedURL.hostname ||= defaultServer;
     defaultMqttPort = parsedURL.port ||= defaultMqttPort
 }
+console.log("default server "+envUrl+" "+defaultServer)
 const defaultMqttUsername = envConfig.mqttUsername ||= "";
 const defaultMqttPassword = envConfig.mqttPassword ||= "";
 
