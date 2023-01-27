@@ -1,13 +1,15 @@
-import Referee from '../../src/lib/model/referee';
-import refereeButtons from '../../src/lib/model/referee/buttons';
-import refereeBuzzer from '../../src/lib/model/referee/buzzer';
-import downSignalRelay from '../../src/lib/model/down-signal/relay'
-import refereeWarningLed from '../../src/lib/model/referee/warning-led';
+import {
+    DownSignal,
+    Referee,
+    refereeButtons,
+    refereeBuzzer,
+    downSignalRelay,
+    refereeWarningLed,
+} from "blue-owl";
 import runner from './runner';
 import type {
     Config,
-} from '../../src/scripts/config';
-import DownSignal from '../../src/lib/model/down-signal';
+} from './config';
 
 export function doReferees(conf?: Config) {
     runner(({

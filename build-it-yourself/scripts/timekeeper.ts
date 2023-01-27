@@ -1,9 +1,11 @@
 import runner from './runner';
-import Timekeeper from '../../src/lib/model/timekeeper';
-import timekeeperButtons from '../../src/lib/model/timekeeper/buttons';
+import {
+    Timekeeper,
+    timekeeperButtons,
+} from "blue-owl";
 import type {
     Config,
-} from '../../src/scripts/config';
+} from './config';
 
 export function doTimekeeper(conf?: Config) {
     runner(

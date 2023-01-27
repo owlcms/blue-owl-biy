@@ -1,14 +1,16 @@
 import type {
     RefereeOptions,
-} from '../../src/lib/model/referee';
-import Referee from '../../src/lib/model/referee';
-import refereeButtons from '../../src/lib/model/referee/buttons';
-import downSignalRelay from '../../src/lib/model/down-signal/relay'
+} from 'blue-owl/dist/lib/model/referee';
+import {
+    DownSignal,
+    Referee,
+    refereeButtons,
+    downSignalRelay,
+} from "blue-owl";
 import runner from './runner';
 import type {
     Config,
-} from '../../src/scripts/config';
-import DownSignal from '../../src/lib/model/down-signal';
+} from './config';
 
 export function doSoloReferee(conf?: Config) {
     runner(({

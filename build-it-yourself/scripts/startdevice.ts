@@ -1,13 +1,13 @@
 import type {
     Config,
-} from '../../src/scripts/config';
+} from './config';
 import promptSync from 'prompt-sync';
 import { doTimekeeper } from './timekeeper';
 import { doReferees } from './referee';
 import { doSoloReferee } from './referee-single';
 import { doJury3 } from './jury-3';
 import { doJury5 } from './jury-5';
-import parseConfig from '../../src/scripts/config';
+import parseConfig from './config';
 import { URL } from "url";
 
 const envConfig = parseConfig();
@@ -24,7 +24,7 @@ if (envUrl) {
     defaultServer = parsedURL.hostname ||= defaultServer;
     defaultMqttPort = parsedURL.port ||= defaultMqttPort
 }
-console.log("default server "+envUrl+" "+defaultServer)
+
 const defaultMqttUsername = envConfig.mqttUsername ||= "";
 const defaultMqttPassword = envConfig.mqttPassword ||= "";
 
@@ -60,7 +60,7 @@ if (process.argv[2] == "-x") {
     let selectedMQTTPort = prompt("MQTT server port ["+defaultMqttPort+"] ");
     selectedMQTTPort ||= defaultMqttPort
     
-    let selectedMQTTUsername = prompt("MQTT username ["+defaultMqttUsername+"] ")
+    let selectedMQTTUsername = prompt("MQTT username ["+defaultMqttUsername+"] ");
     selectedMQTTUsername ||= defaultMqttUsername;
     
     let selectedMQTTPassword = prompt("MQTT password ["+defaultMqttPassword+"] ")
@@ -76,9 +76,7 @@ if (process.argv[2] == "-x") {
     }
 }
 
-
-
-//if (process.env) process.env['DEBUG'] = "blue-owl:*"
+if (process.env) process.env['DEBUG'] = "blue-owl:*"
 
 switch (selectedDevice) {
     case "T": {

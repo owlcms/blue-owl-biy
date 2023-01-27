@@ -1,13 +1,15 @@
-import Jury from '../../src/lib/model/jury';
-import JuryMember from '../../src/lib/model/jury-member';
-import juryMemberButtons from '../../src/lib/model/jury-member/buttons';
-import juryMemberRgbLed from '../../src/lib/model/jury-member/rgb-led';
-import juryButtons from '../../src/lib/model/jury/buttons';
-import juryRefereeRgbLeds from '../../src/lib/model/jury/referee-rgb-leds';
+import {
+    Jury,
+    JuryMember,
+    juryMemberButtons,
+    juryMemberRgbLed,
+    juryButtons,
+    juryRefereeRgbLeds,
+} from "blue-owl";
 import runner from './runner';
 import type {
     Config,
-} from '../../src/scripts/config';
+} from './config';
 
 export function doJury3(conf?: Config) {
     runner(({
