@@ -1,19 +1,18 @@
-# Blue Owl
+# Blue Owl Build-it-yourself
 
-Blue Owl provides Technical Official device integration for [OWLCMS](https://owlcms.github.io/owlcms4/). The [Johnny-Five](http://johnny-five.io/) software is used to control the devices' microprocessors using the [Firmata](https://github.com/firmata/protocol) protocol.
+[Blue Owl](https://github.com/scottgonzalez/blue-owl) provides Technical Official device integration for [OWLCMS](https://owlcms.github.io/owlcms4/). It relies on the [Johnny-Five](http://johnny-five.io/) library to control the refereeing devices' microprocessors using the [Firmata](https://github.com/firmata/protocol) protocol.
 
-### About this Fork
+### About this repository
 
-- This fork does not replace the upstream directory by Scott González.  The files in `src` are meant to match the official upstream version.
-- The `Releases` directory in this fork contains the programs necessary to run the program on Windows, Mac, or Linux.
-- This fork adds a `build-it-yourself` directory that contains
+- This repository provides a way to use the Blue-Owl software with your own devices.  The original projects targets specially-built printed commercial circuit boards (PCB).  But you build your own devices, you don't have such constraints and the pin allocations in this version are more natural.
+- This repository adds a `build-it-yourself` directory that contains
   - Diagrams for building your own devices.  An interactive version of the diagram can be loaded on  [wokwi.com](https://wokwi.com) to get the exact pin numbers etc.
-  - Scripts for running the device using the blue-owl library.  If you build your own design and need to change pin assignments, then you can simply change the scripts, and even [rebuild your own executable](BUILDING.md))
+  - Scripts for running the device using the blue-owl library, and a pre-built Windows executable.  If you build your own design and need to change pin assignments, then you can simply change the scripts, and even [rebuild your own executable](BUILDING.md))
   - Definitions of the build-it-yourself devices and instructions for running them on the [wokwi.com](https://wokwi.com) simulator.  You can actually connect the simulated devices to owlcms, click on the virtual buttons, see the virtual LEDs and hear the virtual beeps.
 
 ## Features
 
-- No coding whatsoever is required to build the devices.  Standard Firmata firmware (included) is loaded on the devices, once.  A laptop provides power and a program (included) is used to control the devices.
+- No Arduino coding is required to build the devices.  The Firmata firmware (included in the downloads) is loaded on the devices, once.  A laptop provides power and a program (included) is used to control the devices.
 - Schematics and configurations are provided for building the physical devices yourself.  If there are parts you don't need, simply omit them.
 - If you need to change the pin assignments, there are instructions for doing so and rebuilding the control program.  The firmware does not change.
 
