@@ -1,14 +1,14 @@
 import type {
     Board,
-} from 'johnny-five';
+} from 'blue-owl';
 import type {
     Config,
 } from './config';
 
 import {
-    Board as connectBoard,
+    connectBoard,
     Owlcms,
-} from "blue-owl";
+} from 'blue-owl';
 import parseConfig from './config';
 
 export type Initializer = (options: InitializerOptions) => void;

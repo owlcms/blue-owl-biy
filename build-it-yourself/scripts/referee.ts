@@ -88,7 +88,7 @@ export function doReferees(conf?: Config) {
                 downSignalRelay({
                     board,
                     duration: 1500,
-                    pin: 'A0',   
+                    pin: 'A0',
                 }),
                 downSignalRelay({
                     board,
