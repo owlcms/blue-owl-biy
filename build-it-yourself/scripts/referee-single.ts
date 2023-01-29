@@ -1,6 +1,6 @@
 import type {
     RefereeOptions,
-} from 'blue-owl/dist/lib/model/referee';
+} from 'blue-owl';
 import {
     DownSignal,
     Referee,
@@ -40,7 +40,7 @@ export function doSoloReferee(conf?: Config) {
                 downSignalRelay({
                     board,
                     duration: 1500,
-                    pin: 'A0',   
+                    pin: 'A0',
                 }),
                 downSignalRelay({
                     board,
