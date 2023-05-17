@@ -1,3 +1,13 @@
+
+> This repository is **obsolete**
+> 
+> For the Blue-owl official software, see [Blue Owl](https://github.com/scottgonzalez/blue-owl) 
+> 
+> For building your own devices or creating your own configurations, see [owlcms-firmata](https://github.com/owlcms/owlcms-firmata) 
+
+
+
+
 # Blue Owl Build-it-yourself
 
 [Blue Owl](https://github.com/scottgonzalez/blue-owl) provides Technical Official device integration for [OWLCMS](https://owlcms.github.io/owlcms4/). It relies on the [Johnny-Five](http://johnny-five.io/) library to control the refereeing devices' microprocessors using the [Firmata](https://github.com/firmata/protocol) protocol.
